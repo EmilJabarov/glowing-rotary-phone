@@ -1,0 +1,11 @@
+Flask
+requests
+SQLAlchemy
+flask-login
+serpapi
+Flask-Caching
+python-dotenv
+Werkzeug
+openai>=0.28.0
+Flask-Migrate
+google-search-results

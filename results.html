@@ -1,0 +1,30 @@
+<!-- templates/results.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Results for "{{ query }}"</h1>
+{% if results %}
+    <div class="results">
+        {% for result in results %}
+            <div class="card">
+                <a href="{{ result.url }}" target="_blank"><h3>{{ result.name }}</h3></a>
+                <p>{{ result.snippet }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    {% if total > 10 %}
+        <div class="pagination">
+            {% if page > 1 %}
+                <a href="{{ url_for('results', query=query, page=page-1) }}"><button>Previous</button></a>
+            {% endif %}
+            <span>Page {{ page }}</span>
+            {% if total > page * 10 %}
+                <a href="{{ url_for('results', query=query, page=page+1) }}"><button>Next</button></a>
+            {% endif %}
+        </div>
+    {% endif %}
+{% else %}
+    <p>No results found.</p>
+{% endif %}
+<a href="{{ url_for('search') }}"><button>New Search</button></a>
+{% endblock %}

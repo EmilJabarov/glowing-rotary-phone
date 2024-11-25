@@ -1,0 +1,269 @@
+/* style.css */
+
+/* CSS Variables for Easy Theme Management */
+:root {
+    /* Base Colors */
+    --bg-color: #0D0D0D; /* Almost Black Background */
+    --card-bg: #1A1A1A; /* Dark Gray for Cards */
+    --text-color: #E0E0E0; /* Light Gray Text */
+    --input-bg: #262626; /* Darker Gray for Inputs */
+    --border-color: #333333; /* Medium Dark Gray Borders */
+    --button-bg: #333333; /* Dark Gray Buttons */
+    --button-text: #FFFFFF; /* White Text on Buttons */
+    --button-hover-bg: #4F4F4F; /* Slightly Lighter Gray on Hover */
+    
+    /* Other Variables */
+    --transition-speed: 0.3s;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --button-padding: 0.8rem 2rem;
+    --input-padding: 1rem;
+    --form-width: 500px; /* Increased Width for Forms */
+    --max-container-width: 1200px;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    line-height: 1.6;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+a {
+    color: #FFFFFF; /* White Links */
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: #B3B3B3; /* Light Gray on Hover */
+}
+
+nav {
+    background-color: var(--card-bg);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+nav a {
+    margin: 0 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.logo a img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.container {
+    width: 90%;
+    max-width: var(--max-container-width);
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: var(--button-padding);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-2px);
+}
+
+form {
+    background-color: var(--card-bg);
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    transition: transform var(--transition-speed);
+    max-width: var(--form-width);
+    margin: 0 auto;
+}
+
+form:hover {
+    transform: translateY(-5px);
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: var(--input-padding);
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: border var(--transition-speed);
+    font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    border-color: #555555; /* Lighter Gray on Focus */
+    outline: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 1rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    margin-bottom: 1.5rem;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Flash Messages */
+ul li {
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+ul li.success {
+    background-color: #4CAF50; /* Green */
+    color: #FFFFFF;
+}
+
+ul li.danger {
+    background-color: #f44336; /* Red */
+    color: #FFFFFF;
+}
+
+ul li.warning {
+    background-color: #ff9800; /* Orange */
+    color: #FFFFFF;
+}
+
+ul li.info {
+    background-color: #2196F3; /* Blue */
+    color: #FFFFFF;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav a {
+        margin: 0.5rem 0;
+    }
+
+    form {
+        padding: 2rem;
+        max-width: 90%;
+    }
+}
+
+/* Additional Enhancements */
+
+/* Smooth Transition for All Interactive Elements */
+button,
+a,
+input,
+textarea {
+    transition: all var(--transition-speed) ease;
+}
+
+/* Button Active State */
+button:active {
+    transform: scale(0.98);
+}
+
+/* Link Underline Animation */
+a {
+    position: relative;
+    display: inline-block;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #B3B3B3; /* Light Gray */
+    transform-origin: bottom right;
+    transition: transform var(--transition-speed) ease-out;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Fade-in Animation for Cards */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Staggered Animation for Multiple Cards */
+.results .card:nth-child(1) {
+    animation-delay: 0s;
+}
+.results .card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.results .card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+/* Continue as needed for additional cards */

@@ -1,0 +1,18 @@
+<!-- templates/search_history.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Your Search History</h2>
+    {% if history %}
+        <ul>
+            {% for search in history %}
+                <li>
+                    <strong>{{ search.search_query }}</strong> - {{ search.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no search history.</p>
+    {% endif %}
+{% endblock %}

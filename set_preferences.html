@@ -1,0 +1,13 @@
+<!-- templates/set_preferences.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h1>Set Your Preferences</h1>
+    <form method="POST">
+        <textarea name="preferences" rows="5" placeholder="Enter your preferences">{{ preferences }}</textarea>
+        <button type="submit">Save Preferences</button>
+    </form>
+    <a href="{{ url_for('profile') }}">Back to Profile</a>
+</div>
+{% endblock %}
